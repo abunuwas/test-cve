@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "cve-2022-2917"
+version = "0.1.0"
+description = ""
+authors = ["Jose"]
+readme = "README.md"
+packages = [{include = "cve_2022_2917"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyjwt = {version = "2.3.0", extras = ["cryptography"]}
+cryptography = "^44.0.0"
+fastapi = "^0.115.8"
+uvicorn = "^0.34.0"
+python-multipart = "0.0.6"
+sqlalchemy = "1.2.17"
+psycopg2 = {extras = ["binary"], version = "^2.9.10"}
+python-jose = "^3.3.0"
+jwcrypto = "^1.5.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
