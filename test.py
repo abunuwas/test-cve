@@ -1,4 +1,5 @@
 import base64
+import os
 from pathlib import Path
 from typing import Annotated
 
@@ -77,7 +78,9 @@ orders = [
     OrderModel(product='potatoes', user='userB'),
 ]
 
-engine = create_engine('postgres+psycopg2://postgres:postgres@localhost:5432/postgres')
+db_uri = os.getenv("db_uri", "postgres+psycopg2://postgres:postgres@localhost:5432/postgres")
+db_uri = db_uri.replace("postgresql", "postgres+psycopg2")
+engine = create_engine(db_uri)
 session_maker = sessionmaker(bind=engine)
 Base.metadata.create_all(engine)
 
